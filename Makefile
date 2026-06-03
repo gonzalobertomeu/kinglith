@@ -9,6 +9,9 @@ down:
 logs:
 	$(COMPOSE) logs -f
 
+logs-%:
+	$(COMPOSE) logs -f $*
+
 restart:
 	$(COMPOSE) down && $(COMPOSE) up -d
 

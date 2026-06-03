@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from './persistence/datasource/datasource.options';
+import { models } from './persistence/models.barrel';
 
 @Module({
   imports: [
@@ -8,6 +9,7 @@ import { dataSourceOptions } from './persistence/datasource/datasource.options';
       ...dataSourceOptions,
       autoLoadEntities: true,
     }),
+    TypeOrmModule.forFeature([...models]),
   ],
   controllers: [],
   providers: [],
