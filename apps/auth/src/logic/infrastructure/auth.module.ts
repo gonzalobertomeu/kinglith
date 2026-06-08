@@ -2,6 +2,10 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { dataSourceOptions } from './persistence/datasource/datasource.options';
 import { models } from './persistence/models.barrel';
+import { repositories } from './persistence/repositories.barrel';
+import { services } from './services/services.barrel';
+import { UserController } from './presenters/http/users.http';
+import { usecases } from '../application/usecases.barrel';
 
 @Module({
   imports: [
@@ -11,7 +15,7 @@ import { models } from './persistence/models.barrel';
     }),
     TypeOrmModule.forFeature([...models]),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [UserController],
+  providers: [...repositories, ...services, ...usecases],
 })
 export class AuthModule {}

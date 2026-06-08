@@ -1,0 +1,11 @@
+### 
+
+# Create User
+
+POST localhost:4321/users HTTP/1.1
+Content-Type: application/json
+
+{
+ "email": "ggbertomeu@gmail.com",
+ "password": "kingcat" HTTP/1.1
+}
